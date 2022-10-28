@@ -1,32 +1,30 @@
-import java.util.Scanner;
- 
+import java.util.*;
+
 public class Main {
- 
+
 	public static void main(String[] args) {
- 
-		Scanner in = new Scanner(System.in);
+		// TODO Auto-generated method stub
 		
-		int num = in.nextInt();
-		int price = in.nextInt();
+		Scanner sc = new Scanner(System.in);
+		
+		int num = sc.nextInt();
+		int price = sc.nextInt();
 		
 		int[] coin = new int[num];
 		
-		for(int i = 0; i < num; i++) {
-			coin[i] = in.nextInt();
+		
+		for(int i=0; i<num; i++) {
+			coin[i] = sc.nextInt();
 		}
 		
-		int count = 0;
- 
-		for(int i = num - 1; i >= 0; i--) {
- 
-			// 현재 동전의 가치가 K보다 작거나 같아야지 구성가능하다.
-			if(coin[i] <= price) {
-				// 현재 가치의 동전으로 구성할 수 있는 개수를 더해준다.
-				count += (price / coin[i]);
-				price = price % coin[i];
+		int result = 0;
+		
+		for(int i= num-1; i>=0; i--) {
+			if (price >= coin[i]) {
+				result += (price/coin[i]);
+				price %= coin[i];
 			}
 		}
-		System.out.println(count);
+		System.out.println(result);
 	}
- 
 }

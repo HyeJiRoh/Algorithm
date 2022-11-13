@@ -1,10 +1,10 @@
-num = int(input())
-arr = []
-
-for i in str(num) :
-  arr.append(int(i))
-
-arr.sort(reverse=True)
+arr = list(input())
+result = []
 
 for i in arr :
+  result.append(i)
+
+result.sort(reverse = True)
+
+for i in result :
   print(i, end="")

@@ -1,22 +1,23 @@
 import sys
 input = sys.stdin.readline
 
-t = int(input())
+num = int(input())
 
-for i in range(t) :
-  total = 0
-  arr = list(input().strip())
+for i in range(num) :
+  txt = input()
+  arr = []
 
-  for i in arr :
-    if i == '(':
-      total += 1
+  for i in txt :
+    if i == '(' :
+      arr.append(i)
     elif i == ')' :
-      total -= 1
-    if total<0 :
-      print("NO")
-      break
-      
-  if total == 0 :
-    print("YES")
-  elif total > 0 :
+      if len(arr) == 0 :
+        arr.append(i)
+        break
+      else :
+        arr.pop()
+
+  if len(arr) != 0 :
     print("NO")
+  else :
+    print("YES")

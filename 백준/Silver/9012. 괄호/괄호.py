@@ -4,14 +4,14 @@ input = sys.stdin.readline
 num = int(input())
 
 for i in range(num) :
-  txt = input()
+  s = input()
   arr = []
-
-  for i in txt :
+  
+  for i in s :
     if i == '(' :
       arr.append(i)
     elif i == ')' :
-      if len(arr) == 0 :
+      if '(' not in arr :
         arr.append(i)
         break
       else :

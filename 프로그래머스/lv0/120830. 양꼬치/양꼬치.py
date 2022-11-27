@@ -1,9 +1,3 @@
 def solution(n, k):
-    sheep = 12000
-    drink = 2000
-    service = n//10
-    if n >= 10 :
-        answer = sheep*n + drink*k - drink*service
-    else :
-        answer = sheep*n + drink*k
+    answer = 12000*n + 2000*k - (n//10)*2000
     return answer

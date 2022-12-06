@@ -7,6 +7,5 @@ def solution(letter):
     '...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',
     '-.--':'y','--..':'z'}
     temp = list(letter.split(" "))
-    for i in temp :
-        answer += morse[i]
+    answer = "".join(morse[i] for i in temp)
     return answer

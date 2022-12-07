@@ -1,2 +1,8 @@
 def solution(n):
-    return [int(i) for i in str(n)][::-1]
+    answer = []
+    n = list(str(n))
+    
+    for i in n :
+        answer.append(int(i))
+    
+    return answer[::-1]

@@ -2,7 +2,7 @@ def solution(s):
     answer = 0
     s = s.lower()
     if s.count('p') == s.count('y') :
-        answer = bool(1)
+        answer = True
     elif s.count('p') != s.count('y') :
-        answer = bool(0)
+        answer = False
     return answer

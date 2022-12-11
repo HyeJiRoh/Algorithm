@@ -1,13 +1,12 @@
 def solution(x):
     answer = True
-    temp = 0
-    num = x
-    while (x>=10) :
-        temp += x%10
-        x = x//10
-    temp += x
-    if num%temp == 0 :
-        answer= True
-    else :
+    total = 0
+    
+    for i in str(x) :
+        i = int(i)
+        total += i
+   
+    if x%total != 0 :
         answer = False
+        
     return answer

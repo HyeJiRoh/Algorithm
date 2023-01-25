@@ -1,13 +1,14 @@
 import sys
+input = sys.stdin.readline
 
-num = int(sys.stdin.readline())
+n = int(input())
 arr = []
 
-for i in range(num) :           
-  arr.append(sys.stdin.readline().strip())
+for i in range(n) :
+    arr.append(input().strip())
 
 arr = list(set(arr))
-arr.sort(key = lambda x:(len(x),x))
+arr.sort(key = lambda x:(len(x), x))
 
 for i in arr :
-  print(i)
+    print(i)

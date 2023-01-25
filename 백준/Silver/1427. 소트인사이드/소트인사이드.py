@@ -1,10 +1,8 @@
-arr = list(input())
-result = []
+import sys
+input = sys.stdin.readline
 
-for i in arr :
-  result.append(i)
+n = list(map(int, input().strip()))
+n.sort(reverse=True)
 
-result.sort(reverse = True)
-
-for i in result :
-  print(i, end="")
+for i in n :
+    print(i, end="")

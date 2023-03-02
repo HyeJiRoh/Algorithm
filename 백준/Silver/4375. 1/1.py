@@ -1,12 +1,13 @@
 while True:
     try:
         n = int(input())
-        ans = '1'
+        base = '1'
+
         while True:
-            if int(ans) % n == 0:
-                print(len(ans))
+            if int(base)%n == 0:
+                print(len(base))
                 break
-            ans += '1'
+            base += '1'
 
     except EOFError:
         break

@@ -1,41 +1,42 @@
+from collections import deque
 import sys
 input = sys.stdin.readline
-from collections import deque
 
-def dfs(v):
-    print(v, end=' ')
-    visit[v] = 1
-    
-    for i in range(1, n + 1):
-        if visit[i] == 0 and arr[v][i] == 1:
-            dfs(i)
+def dfs(node):
+    print(node, end = ' ')
+    visited[node] = True
 
+    for idx in graph[node]:
+        if not(visited[idx]):
+            dfs(idx)
 
-def bfs(v):
-    queue = [v]
-    visit[v] = 0
+def bfs(node):
+    queue = deque([node])
 
-    while (queue):
-        v = queue[0]
-        print(v, end=' ')
-        del queue[0]
+    while queue:
+        node = queue.popleft()
 
-        for i in range(1, n + 1):
-            if visit[i] == 1 and arr[v][i] == 1:
-                queue.append(i)
-                visit[i] = 0
+        if visited[node] == False:
+            visited[node] = True
+            print(node, end = ' ')
 
+            for idx in graph[node]:
+                if not(visited[idx]):
+                    queue.append(idx)
 
 n, m, v = map(int, input().split())
+graph =[[] for _ in range(n+1)]
 
-arr = [[0] * (n + 1) for i in range(n + 1)]
-visit = [0 for i in range(n + 1)]
+for _ in range(m):
+    key, value = map(int, input().split())
+    graph[key].append(value)
+    graph[value].append(key)
 
-for i in range(m):
-    x, y = map(int, input().split())
-    arr[x][y] = 1
-    arr[y][x] = 1
+for idx in graph:
+    idx.sort()
 
+visited = [False] * (n+1)
 dfs(v)
 print()
+visited = [False] * (n+1)
 bfs(v)

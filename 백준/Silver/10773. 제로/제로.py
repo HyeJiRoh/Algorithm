@@ -1,15 +1,18 @@
 import sys
 input = sys.stdin.readline
 
-k = int(input())
-arr = []
+n = int(input())
+result = []
 
-for i in range(k) :
-  i = int(input())
-  if i == 0 :
-    arr.pop()
-  else : 
-    arr.append(i)
+for _ in range(n):
+    num = int(input())
+    
+    if num != 0:
+        result.append(num)
+    else:
+        result.pop()
 
-
-print(sum(arr))
+if len(result) == 0:
+    print(0)
+else:
+    print(sum(result))

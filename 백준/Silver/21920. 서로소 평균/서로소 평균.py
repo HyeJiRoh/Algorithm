@@ -1,23 +1,20 @@
 import sys
-input=sys.stdin.readline
+input = sys.stdin.readline
 
-def gcd(a,b):
-    if b==0:
-        return a
-    else:
-        return gcd(b,a%b)
-def lcm(a,b):
-    return (a*b)//gcd(a,b)
-#서로소: lcm(a,b)==a*b or gcd(a,b)==1
+def gcd(a, b):
+    while b > 0:
+        a, b = b, a % b
+    return a
 
-n=int(input().rstrip()) #수의 개수
-a=list(map(int,input().split()))  #수열
-x=int(input().rstrip())  #x
+N = int(input())
+li = list(map(int, input().split()))
+X = int(input())
 
-mean=[]
-for i in range(n):
-    if a[i]!=x: #x와 같은 수가 아니면서
-        if gcd(a[i],x)==1: #gcd(a,b)==1인 것
-            mean.append(a[i])
+result = []
 
-print('{:.6f}'.format(sum(mean)/len(mean)))
+for i in range(N):
+    if li[i] != X:
+        if gcd(li[i], X) == 1:
+            result.append(li[i])
+
+print("{:.6f}".format(sum(result) / len(result)))

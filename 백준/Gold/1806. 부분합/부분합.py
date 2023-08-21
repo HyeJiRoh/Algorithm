@@ -1,18 +1,26 @@
-N, S = map(int, input().split())
+import sys
+
+input = sys.stdin.readline
+
+n, s = map(int, input().split())
 arr = list(map(int, input().split()))
 
-start, end = 0, 0
+left, right = 0, 0
 total = arr[0]
-result = 100001
+length = sys.maxsize
 
 while True:
-    if total < S:
-        end += 1
-        if end == N: break
-        total += arr[end]
+    if total >= s:
+        length = min(length, right - left + 1)
+        total -= arr[left]
+        left += 1
     else:
-        total -= arr[start]
-        result = min(result, end - start + 1)
-        start += 1
-        
-print(result if result != 100001 else 0)
+        right += 1
+        if right == n:
+            break
+        total += arr[right]
+
+if length == sys.maxsize:
+    print(0)
+else:
+    print(length)

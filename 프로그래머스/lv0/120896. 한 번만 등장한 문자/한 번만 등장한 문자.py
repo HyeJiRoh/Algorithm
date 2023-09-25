@@ -1,9 +1,8 @@
 def solution(s):
-    answer = []
+    answer = ''
     s = list(s)
-    for i in s :
-        if s.count(i) == 1 :
-            answer += i
-    answer.sort()
-    answer = "".join(answer)
+    s.sort()
+    for alpha in s:
+        if s.count(alpha) == 1:
+            answer += alpha
     return answer

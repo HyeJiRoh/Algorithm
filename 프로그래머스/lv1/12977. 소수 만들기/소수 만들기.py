@@ -9,6 +9,7 @@ def solution(nums):
         for i in range(2, data):
             if data % i == 0:
                 flag = False
+                break
                 
         if flag:
             answer += 1

@@ -1,28 +1,32 @@
-n = int(input())
-arr = [int(input()) for _ in range(n)]
+import sys
+
+input = sys.stdin.readline
+
+N = int(input())
+
+arr = []
+for i in range(N):
+    num = int(input())
+    arr.append(num)
+
+answer = 0
+
+cache = {}
+
 arr.sort()
-arr2 = []
-for i in range(n):
-    for j in range(i, n):
-        arr2.append(arr[j] + arr[i])
+for i in arr:
+    for j in arr:
+        cache.setdefault(i + j, True)
 
-arr2.sort()
-result = 0
+flag = False
+for last in range(N-1, -1, -1):
 
-for i in range(n):
-    for j in range(i, n):
-        a = arr[j] - arr[i]
-        start = 0
-        end = len(arr2) - 1
-        while start <= end:
-            mid = (start + end) // 2
-            b = arr2[mid]
-            if a > b:
-                start = mid + 1
-            elif a < b:
-                end = mid - 1
-            else:
-                result = max(result, arr[j])
-                break
+    if(flag): break
 
-print(result)
+    for num in range(last + 1):
+        if(arr[last] - arr[num] in cache):
+            answer = arr[last]
+            flag = True
+            break
+
+print(answer)

@@ -1,3 +1,1 @@
-select PRICE as MAX_PRICE from PRODUCT
-order by PRICE desc
-limit 1
+select MAX(PRICE) as MAX_PRICE from PRODUCT

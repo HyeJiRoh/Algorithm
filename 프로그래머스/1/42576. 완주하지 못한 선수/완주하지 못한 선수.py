@@ -2,10 +2,12 @@ def solution(participant, completion):
     dict = {}
     total = 0
     
-    for i in participant:
-        dict[hash(i)] = i
-        total += hash(i)
-        
+    for name in participant:
+        dict[hash(name)] = name
+        total += hash(name)
+    
+    print(dict)
+    
     for j in completion:
         total -= hash(j)
 

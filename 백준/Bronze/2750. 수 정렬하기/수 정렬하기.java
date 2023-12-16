@@ -1,23 +1,22 @@
+import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Main{
+    public static void main(String[] args) throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		Scanner sc = new Scanner(System.in);
-		
-		int num = sc.nextInt();
-		int[] input = new int[num];
-		
-		for(int i=0; i<num; i++) {
-			input[i] = sc.nextInt();
-		}
-		
-		Arrays.sort(input);
-		
-		for(int i=0; i<num; i++) {
-			System.out.println(input[i]);
-		}
-	}
+        int N = Integer.parseInt(br.readLine());
+        int[] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = Integer.parseInt(br.readLine());
+        }
+        Arrays.sort(arr);
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
+            sb.append(arr[i]).append("\n");
+        }
+
+        System.out.println(sb.toString());
+    }
 }

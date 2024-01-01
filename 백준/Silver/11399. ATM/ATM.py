@@ -1,13 +1,13 @@
-person = int(input())
+import sys
+input = sys.stdin.readline
+
+n = int(input())
 time = list(map(int, input().split()))
-result = 0
+
 time.sort()
+result = 0
 
-total = time[0]
-result += total
-
-for i in range(1, person) :
-  total = total + time[i]
-  result += total
-
+for i in range(len(time)):
+    result += sum(time[:i+1])
+    
 print(result)

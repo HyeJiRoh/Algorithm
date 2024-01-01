@@ -1,16 +1,19 @@
-num, price = map(int, input().split())
-coin = []
-count = 0
+import sys
+input = sys.stdin.readline
 
-for i in range(num) :
-  coin.append(int(input()))  
+n, k = map(int, input().split())
+coins = []
 
-for i in range(num-1, -1, -1) :
-  if price == 0 :
-    break
+for _ in range(n):
+    coins.append(int(input()))
 
-  if price >= coin[i] :
-    count += price//coin[i]
-    price = price%coin[i]
+coins.sort(reverse=True)
 
-print(count)
+result = 0
+
+for coin in coins:
+    if k >= coin:
+        result += (k//coin)
+        k %= coin
+
+print(result)

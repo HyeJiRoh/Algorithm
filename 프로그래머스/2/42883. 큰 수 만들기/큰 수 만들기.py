@@ -1,5 +1,4 @@
 def solution(number, k):
-    answer = ''
     stack = []
     for num in number:
         while len(stack) != 0 and k > 0 and stack[-1] < num:

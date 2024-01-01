@@ -2,13 +2,13 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-arr = []
+word = []
 
-for i in range(n) :
-    arr.append(input().strip())
+for _ in range(n):
+    word.append(input().strip())
 
-arr = list(set(arr))
-arr.sort(key = lambda x:(len(x), x))
+word = list(set(word))
+word.sort(key=lambda x:(len(x), x))
 
-for i in arr :
+for i in word:
     print(i)

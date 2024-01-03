@@ -1,23 +1,20 @@
 import sys
-
 input = sys.stdin.readline
 
-S = list(input().rstrip())
-T = list(input().rstrip())
+s = input().strip()
+t = input().strip()
+T = list(t)
 
-flag = False
-
-while T:
-    if T[-1] == "A":
+while True:
+    if len(s) == len(T):
+        break    
+    if T[-1] == 'A':
         T.pop()
-    elif T[-1] == "B":
+    elif T[-1] == 'B':
         T.pop()
-        T = T[::-1]
-    if S == T:
-        flag = True
-        break
+        T=T[::-1]
 
-if flag:
+result = "".join(T)
+if s == result:
     print(1)
-else:
-    print(0)
+else: print(0)

@@ -3,14 +3,14 @@ input = sys.stdin.readline
 
 n = int(input())
 k = int(input())
-sensors = list(map(int,input().split()))
+sensors = list(map(int, input().split()))
+
 sensors.sort()
+arr = []
 
-array = []
+for i in range(len(sensors)-1):
+    arr.append(sensors[i+1] - sensors[i])
 
-for i in range(0, n-1):
-    array.append(sensors[i+1] - sensors[i])
+arr.sort()
 
-array.sort()
-
-print(sum(array[:n-k]))
+print(sum(arr[:n-k]))

@@ -1,22 +1,24 @@
 def solution(answers):
-    answer_lists = [
+    math_haters = [
         [1, 2, 3, 4, 5], 
         [2, 1, 2, 3, 2, 4, 2, 5], 
         [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
     ]
     
-    results = [0] * 3
+    result = [0] * 3
     
-    for i, answer in enumerate(answers):
-        for j, answer_list in enumerate(answer_lists):
-            if answer == answer_list[i % len(answer_list)]:
-                results[j] += 1
+    for idx, answer in enumerate(answers):
+        for jdx, haters_answer in enumerate(math_haters):
+            if answer == haters_answer[idx % len(haters_answer)]:
+                result[jdx] += 1
+                
+    max_score = max(result)
+    max_result = []
     
-    max_result = max(results)
-    final_result = []
+    for i, value in enumerate(result, start = 1):
+        if value == max_score:
+            max_result.append(i)
     
-    for i, result in enumerate(results):
-        if result == max_result:
-            final_result.append(i + 1)
-    
-    return final_result
+    return max_result
+
+                

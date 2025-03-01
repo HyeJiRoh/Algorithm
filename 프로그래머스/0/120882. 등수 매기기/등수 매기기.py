@@ -2,6 +2,7 @@ def solution(score):
     answer = []
     tmp = []
     result = []
+    
     for score_value in score:
         total = sum(score_value)
         answer.append(total)
